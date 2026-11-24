@@ -106,10 +106,7 @@ public static class ServiceTogether
         return string.CompareOrdinal(a.ModifiePar, b.ModifiePar) > 0;
     }
 
-    /// <summary>
-    /// Fusionne des éléments reçus dans la liste locale (qui est modifiée). Renvoie ceux qui ont changé ou qui sont nouveaux.
-    /// Idempotent (appliquer deux fois = une fois) et indépendant de l'ordre. « espace » est la clé LOCALE de la conversation.
-    /// </summary>
+    
     public static List<ItemTogether> Fusionner(List<ItemTogether> local, string espace, IEnumerable<ItemTogether> recus)
     {
         var changes = new List<ItemTogether>();

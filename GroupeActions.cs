@@ -6,18 +6,13 @@ namespace TALKORA.Core;
 /// <summary>Ce qu'a changé une action de groupe reçue.</summary>
 public enum ResultatGroupe
 {
-    Ignore,    // refusée ou invalide : rien n'a changé
+    Ignore,    
     Cree,      // je viens d'être ajouté à un nouveau groupe
     Modifie,   // le groupe existant a changé
     Retire     // je ne fais plus partie du groupe (retiré par l'admin)
 }
 
-/// <summary>
-/// Les règles des groupes, sans réseau ni affichage. Comme il n'y a pas de serveur central,
-/// c'est l'administrateur qui envoie la version à jour du groupe à tous les membres.
-/// L'identité de l'expéditeur est son adresse IP réelle (vue par le réseau, non falsifiable
-/// par le contenu du message) : seul l'admin du groupe peut le modifier.
-/// </summary>
+
 public static class GroupeActions
 {
     public const int MembresMax = 256;
@@ -26,7 +21,6 @@ public static class GroupeActions
 
     // ===================== CRÉATION DES MESSAGES =====================
 
-    /// <summary>Message "voici la version à jour du groupe", à envoyer à chaque membre.</summary>
     public static MessageChat CreerMiseAJour(Groupe groupe, ProfilUtilisateur moi, string destinataireIp)
     {
         // On n'envoie pas mes réglages personnels (qui j'ai bloqué)

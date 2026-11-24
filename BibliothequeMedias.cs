@@ -2,10 +2,7 @@ namespace TALKORA.Core;
 
 public enum TypeMedia { Sticker, Gif }
 
-/// <summary>
-/// Les stickers et les GIFs de l'utilisateur : de simples fichiers rangés dans
-/// DataTalkora/Stickers et DataTalkora/Gifs. Tout est hors ligne : on ajoute ses propres images.
-/// </summary>
+
 public class BibliothequeMedias
 {
     public const long TailleMaxSticker = 2L * 1024 * 1024;

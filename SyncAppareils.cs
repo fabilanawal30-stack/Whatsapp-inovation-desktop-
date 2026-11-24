@@ -6,14 +6,6 @@ using System.Text.RegularExpressions;
 
 namespace TALKORA.Core;
 
-// =====================================================================
-//  TALKORA SYNC : continuer une conversation sur tous MES appareils Talkora
-//  - brouillons (le texte commencé sur un PC se retrouve sur l'autre) ;
-//  - messages et conversations (en direct, puis rattrapage à la reconnexion) ;
-//  - fichiers partagés récents (≤ 20 Mo) ;
-//  - espaces de travail (listes « Together »).
-//  Tout reste sur le réseau local, chiffré (TLS) et signé : seul un appareil APPAIRÉ avec un code peut échanger.
-// =====================================================================
 
 public class Brouillon
 {

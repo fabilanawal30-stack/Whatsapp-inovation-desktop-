@@ -4,10 +4,7 @@ namespace TALKORA.Core;
 
 public enum EtatEntete { Aucun, EnLigne, HorsLigne, Ecrit, Attention }
 
-/// <summary>
-/// L'en-tête de la conversation reçoit un seul texte du genre « Bob  ·  192.168.1.5:5000   ✅ Talkora actif ».
-/// Pour l'afficher comme dans WhatsApp (nom en gras + « en ligne » en vert dessous), on le découpe ici.
-/// </summary>
+
 public static class EnteteConversation
 {
     private static readonly Regex Adresse = new(@"^\s*\d{1,3}(\.\d{1,3}){3}(:\d+)?\s*$", RegexOptions.Compiled);

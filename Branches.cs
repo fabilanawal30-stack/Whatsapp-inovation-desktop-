@@ -2,7 +2,7 @@ using System.Text.Json;
 
 namespace TALKORA.Core;
 
-/// <summary>Un sujet (branche) vu depuis une conversation.</summary>
+
 public sealed class Sujet
 {
     public Guid Id { get; set; }

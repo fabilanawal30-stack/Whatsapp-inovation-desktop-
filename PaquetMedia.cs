@@ -8,11 +8,7 @@ public enum TypePaquet : byte { Audio = 1, Video = 2 }
 public readonly record struct PaquetDecode(
     Guid IdAppel, TypePaquet Type, uint Sequence, uint IdImage, int Fragment, int NombreFragments, byte[] Donnees);
 
-/// <summary>
-/// Format des paquets UDP d'un appel. En-tête de 29 octets :
-/// IdAppel (16) | type (1) | numéro de paquet (4) | numéro d'image (4) | fragment (2) | nb de fragments (2)
-/// L'IdAppel sert de "mot de passe" : un paquet qui ne le porte pas est jeté.
-/// </summary>
+
 public static class PaquetMedia
 {
     public const int TailleEntete = 29;

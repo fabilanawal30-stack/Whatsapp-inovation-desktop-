@@ -14,13 +14,7 @@ public class IAIndisponibleException : Exception
 /// <summary>Un texte produit, et QUI l'a produit (le modèle, ou les règles simples de secours).</summary>
 public record ResultatIA(string Texte, bool ParModele);
 
-/// <summary>
-/// L'assistant IA de Talkora (Tali) : suggestions de réponse, résumé, reformulation, correction.
-/// 100 % local : le texte ne quitte jamais l'ordinateur.
-/// Comme TraducteurTali, cette classe ne connaît pas le modèle : on lui donne une fonction « prompt -> réponse »
-/// et une fonction « le modèle est-il installé ? ». Sans modèle, suggestions / résumé / correction retombent
-/// sur des règles simples (moins bonnes, mais ça marche toujours) ; la reformulation exige le modèle.
-/// </summary>
+ 
 public class AssistantTali
 {
     public const int CaracteresMax = 3000;       // taille maximale de conversation envoyée au modèle
@@ -50,12 +44,7 @@ public class AssistantTali
 
     public string Nom => ModeleDisponible ? (_nomModele ?? "Tali (modèle hors ligne)") : "Mode simplifié (modèle Tali non installé)";
 
-    // ===================== SUGGESTIONS DE RÉPONSE =====================
-
-    /// <summary>
-    /// Jusqu'à 3 réponses courtes à proposer. « fin » = les derniers messages de la conversation, du plus ancien au plus récent.
-    /// Renvoie une liste vide si le dernier message est de moi (on ne répond pas à soi-même).
-    /// </summary>
+    
     public async Task<ResultatIA[]> SuggererAsync(IReadOnlyList<MessageChat> fin, Func<MessageChat, bool> estMoi,
                                                   string langue = "fr", CancellationToken ct = default)
     {

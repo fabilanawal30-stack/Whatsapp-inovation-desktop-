@@ -4,17 +4,7 @@ using Microsoft.Data.Sqlite;
 
 namespace TALKORA.Core;
 
-/// <summary>
-/// La base de données de Talkora : un seul fichier SQLite (DataTalkora/talkora.db) qui contient
-/// le profil, les contacts, les groupes, les messages et les statuts.
-///
-/// Les méthodes publiques sont EXACTEMENT celles de l'ancienne version (fichiers JSON) :
-/// le reste du programme n'a pas besoin de changer. Au premier lancement, les anciens fichiers
-/// JSON sont importés automatiquement, puis rangés dans DataTalkora/Sauvegarde-JSON.
-///
-/// Chaque ligne garde une copie complète de l'objet en JSON (colonne « json ») et ses champs
-/// utiles pour chercher/trier dans des colonnes à part (destinataire, date, type...).
-/// </summary>
+
 public class StockageService : IMagasinEmpreintes
 {
     private const int VersionSchema = 1;
